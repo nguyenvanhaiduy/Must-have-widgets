@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:must_have_widgets/layout.dart';
 
 class StackAndPositioned extends StatelessWidget {
   const StackAndPositioned({super.key});
@@ -11,6 +12,25 @@ class StackAndPositioned extends StatelessWidget {
         title: const Text('Stacked Squares'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Layout(),
+                ),
+              );
+            },
+            child: const Text(
+              'Next to file layout',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          )
+        ],
       ),
       body: SizedBox(
         width: size.width,
