@@ -23,7 +23,7 @@ class StackAndPositioned extends StatelessWidget {
               );
             },
             child: const Text(
-              'Next to file layout',
+              'Go to layout file',
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
