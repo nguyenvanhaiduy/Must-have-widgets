@@ -24,6 +24,13 @@ class ContainerAndIcon extends StatelessWidget {
           width: 300,
           height: 200,
           decoration: const BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey,
+                offset: Offset(7, 7),
+                blurRadius: 10,
+              ),
+            ],
             color: Colors.red,
           ),
           child: const Center(

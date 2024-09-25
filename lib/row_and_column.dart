@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:must_have_widgets/bt_ui_co_ban.dart';
+import 'package:must_have_widgets/widgets/widget_text_button.dart';
 
 class RowAndColumn extends StatelessWidget {
   const RowAndColumn({super.key});
@@ -10,6 +12,10 @@ class RowAndColumn extends StatelessWidget {
         title: const Text('Bài tập về Row, Column'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
+        actions: [
+          WidgetTextButton(
+              element: const Homework(), text: 'Go to bt_ui_co_ban file')
+        ],
       ),
       body: Center(
         child: SizedBox(
@@ -59,17 +65,17 @@ class RowAndColumn extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         ItemFooter(
-                          'assets/images/icons8-fridge-50.png',
+                          'assets/icons/icons8-fridge-50.png',
                           'PREP:',
                           '25 min',
                         ),
                         ItemFooter(
-                          'assets/images/icons8-alarm-clock-24.png',
+                          'assets/icons/icons8-alarm-clock-24.png',
                           'COOK:',
                           '1 hr',
                         ),
                         ItemFooter(
-                          'assets/images/icons8-restaurant-50.png',
+                          'assets/icons/icons8-restaurant-50.png',
                           'FEEDS:',
                           '4-6',
                         ),
