@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:must_have_widgets/layout.dart';
+import 'package:must_have_widgets/widgets/widget_text_button.dart';
 
 class StackAndPositioned extends StatelessWidget {
   const StackAndPositioned({super.key});
@@ -13,23 +14,7 @@ class StackAndPositioned extends StatelessWidget {
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
         actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const Layout(),
-                ),
-              );
-            },
-            child: const Text(
-              'Go to layout file',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          )
+          WidgetTextButton(element: const Layout(), text: 'Go to layout file'),
         ],
       ),
       body: SizedBox(
