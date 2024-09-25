@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:must_have_widgets/container_and_icon.dart';
+import 'package:must_have_widgets/widgets/widget_text_button.dart';
 
 class Layout extends StatelessWidget {
   const Layout({super.key});
@@ -10,6 +12,12 @@ class Layout extends StatelessWidget {
         title: const Text('Dựng Layout tương đối từ design có sẵn'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
+        actions: [
+          WidgetTextButton(
+            element: const ContainerAndIcon(),
+            text: 'Go to container_and_icon file',
+          ),
+        ],
       ),
       body: Center(
         child: Container(
