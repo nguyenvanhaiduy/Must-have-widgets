@@ -9,6 +9,8 @@ class StackAndPositioned extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Stacked Squares'),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
       ),
       body: SizedBox(
         width: size.width,
