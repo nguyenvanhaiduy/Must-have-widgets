@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Homework extends StatefulWidget {
   const Homework({super.key});
@@ -36,17 +38,21 @@ class _HomeworkState extends State<Homework> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Item(
-                      like
-                          ? const Icon(Icons.favorite, color: Colors.red)
-                          : const Icon(Icons.favorite),
-                      'Like', () {
-                    setState(() {
-                      like = !like;
-                    });
-                  }),
-                  Item(const Icon(Icons.message), 'Comment', () {}),
-                  Item(const Icon(Icons.share), 'Share', () {}),
+                  Expanded(
+                    child: Item(
+                        like
+                            ? const Icon(Icons.favorite, color: Colors.red)
+                            : const Icon(Icons.favorite),
+                        'Like', () {
+                      setState(() {
+                        like = !like;
+                      });
+                    }),
+                  ),
+                  Expanded(
+                      child: Item(const Icon(Icons.message), 'Comment', () {})),
+                  Expanded(
+                      child: Item(const Icon(Icons.share), 'Share', () {})),
                 ],
               ),
             ],
@@ -89,6 +95,7 @@ Widget Item(Icon icon, String title, Function() onPressed) {
     ),
     onPressed: onPressed,
     child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         icon,
         const SizedBox(width: 5),
