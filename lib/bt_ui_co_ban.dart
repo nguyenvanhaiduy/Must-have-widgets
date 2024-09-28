@@ -46,19 +46,23 @@ class _HomeworkState extends State<Homework> {
                 children: [
                   Expanded(
                     child: Item(
-                        like
-                            ? const Icon(Icons.favorite, color: Colors.red)
-                            : const Icon(Icons.favorite),
-                        'Like', () {
-                      setState(() {
-                        like = !like;
-                      });
-                    }),
+                      like
+                          ? const Icon(Icons.favorite, color: Colors.red)
+                          : const Icon(Icons.favorite),
+                      'Like',
+                      () {
+                        setState(() {
+                          like = !like;
+                        });
+                      },
+                    ),
                   ),
                   Expanded(
-                      child: Item(const Icon(Icons.message), 'Comment', () {})),
+                    child: Item(const Icon(Icons.message), 'Comment', () {}),
+                  ),
                   Expanded(
-                      child: Item(const Icon(Icons.share), 'Share', () {})),
+                    child: Item(const Icon(Icons.share), 'Share', () {}),
+                  ),
                 ],
               ),
             ],
