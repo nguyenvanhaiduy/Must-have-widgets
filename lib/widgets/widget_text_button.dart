@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
 
 // ignore: must_be_immutable
 class WidgetTextButton extends StatelessWidget {
@@ -16,6 +17,7 @@ class WidgetTextButton extends StatelessWidget {
             builder: (context) => element,
           ),
         );
+        // Get.to(element);
       },
       child: Text(
         text,

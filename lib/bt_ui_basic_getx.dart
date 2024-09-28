@@ -1,30 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:must_have_widgets/bt_ui_basic_getx.dart';
-import 'package:must_have_widgets/widgets/widget_text_button.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/instance_manager.dart';
 
-class Homework extends StatefulWidget {
-  const Homework({super.key});
+class Controller extends GetxController {
+  var like = false;
+  void changeLike() {
+    like = !like;
+    update();
+  }
 
-  @override
-  State<Homework> createState() => _HomeworkState();
+  var count = 0;
+  void increment() {
+    count++;
+    update();
+  }
 }
 
-class _HomeworkState extends State<Homework> {
-  var like = false;
-  var counter = 0;
+class HomeWork extends StatelessWidget {
+  const HomeWork({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(Controller());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
         title: const Text('Homework'),
-        actions: [
-          WidgetTextButton(
-            element: const HomeWork(),
-            text: 'Go to bt_ui_basic_getX file',
-          ),
-        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,15 +47,17 @@ class _HomeworkState extends State<Homework> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Expanded(
-                    child: Item(
-                        like
+                    child: GetBuilder<Controller>(
+                      builder: (_) => Item(
+                        controller.like
                             ? const Icon(Icons.favorite, color: Colors.red)
                             : const Icon(Icons.favorite),
-                        'Like', () {
-                      setState(() {
-                        like = !like;
-                      });
-                    }),
+                        'Like',
+                        () {
+                          controller.changeLike();
+                        },
+                      ),
+                    ),
                   ),
                   Expanded(
                       child: Item(const Icon(Icons.message), 'Comment', () {})),
@@ -65,15 +69,17 @@ class _HomeworkState extends State<Homework> {
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 20),
-            child: Text.rich(
-              TextSpan(
-                children: [
-                  const TextSpan(text: 'currentCounter is: '),
-                  TextSpan(
-                    text: '$counter',
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  )
-                ],
+            child: GetBuilder<Controller>(
+              builder: (_) => Text.rich(
+                TextSpan(
+                  children: [
+                    const TextSpan(text: 'currentCounter is: '),
+                    TextSpan(
+                      text: '${controller.count}',
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
@@ -81,9 +87,7 @@ class _HomeworkState extends State<Homework> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            counter++;
-          });
+          controller.increment();
         },
         child: const Icon(Icons.add),
       ),
