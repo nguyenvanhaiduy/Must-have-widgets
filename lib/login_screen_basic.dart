@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:must_have_widgets/keno_interface.dart';
+import 'package:must_have_widgets/widgets/widget_text_button.dart';
 
 class LoginScreenBasic extends StatefulWidget {
   const LoginScreenBasic({super.key});
@@ -32,6 +34,12 @@ class _LoginScreenBasicState extends State<LoginScreenBasic> {
         title: const Text('Login'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
+        actions: [
+          WidgetTextButton(
+            element: const KenoInterface(),
+            text: 'Go to keno_interface file',
+          ),
+        ],
       ),
       body: Form(
         key: formKey,
