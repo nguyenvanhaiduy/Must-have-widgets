@@ -134,7 +134,7 @@ class MobiPay extends StatelessWidget {
                                     ),
                                     alignment: Alignment.topCenter,
                                     autoCloseDuration:
-                                        const Duration(seconds: 4),
+                                        const Duration(seconds: 3),
                                     closeButtonShowType:
                                         CloseButtonShowType.none,
                                     dragToClose: true,
@@ -153,7 +153,7 @@ class MobiPay extends StatelessWidget {
                                     ),
                                     alignment: Alignment.topCenter,
                                     autoCloseDuration:
-                                        const Duration(seconds: 4),
+                                        const Duration(seconds: 3),
                                     closeButtonShowType:
                                         CloseButtonShowType.none,
                                     dragToClose: true,

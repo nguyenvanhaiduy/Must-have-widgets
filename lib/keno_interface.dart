@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:must_have_widgets/mobipay_login.dart';
+import 'package:must_have_widgets/models/colors.dart';
 import 'package:must_have_widgets/models/keno.dart';
+import 'package:must_have_widgets/regex.dart';
 import 'package:must_have_widgets/widgets/widget_text_button.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
@@ -111,6 +113,24 @@ class KenoInterface extends StatelessWidget {
                   ),
                 ],
               ),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Regex(),
+                    ),
+                  );
+                  // Get.to(element);
+                },
+                child: const Text(
+                  'Go to regex file',
+                  style: TextStyle(
+                    color: color,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              )
             ],
           ),
         ),
