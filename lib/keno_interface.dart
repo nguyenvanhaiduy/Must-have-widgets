@@ -43,7 +43,7 @@ class KenoInterface extends StatelessWidget {
                   ),
                   const SizedBox(width: 15),
                   LinearPercentIndicator(
-                    width: width * 0.7,
+                    width: width * 0.6,
                     percent: 1,
                     lineHeight: 10,
                     barRadius: const Radius.circular(10),
@@ -69,7 +69,7 @@ class KenoInterface extends StatelessWidget {
                     ),
                   ),
                   LinearPercentIndicator(
-                    width: width * 0.42,
+                    width: width * 0.36,
                     percent: 1,
                     lineHeight: 10,
                     barRadius: const Radius.circular(10),
@@ -96,7 +96,7 @@ class KenoInterface extends StatelessWidget {
                   ),
                   const SizedBox(width: 40),
                   LinearPercentIndicator(
-                    width: width * 0.28,
+                    width: width * 0.24,
                     percent: 1,
                     lineHeight: 10,
                     barRadius: const Radius.circular(10),

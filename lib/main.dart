@@ -10,10 +10,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color.fromARGB(255, 245, 239, 239),
+      ),
       // home: StackAndPositioned(),
-      home: LoginScreenBasic(),
+      home: const LoginScreenBasic(),
     );
   }
 }
