@@ -1,16 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:must_have_widgets/list_view/chat_messenger.dart';
 import 'package:must_have_widgets/models/colors.dart';
 import 'package:toastification/toastification.dart';
 
-class MobiPay extends StatelessWidget {
+class MobiPay extends StatefulWidget {
   const MobiPay({super.key});
+
+  @override
+  State<MobiPay> createState() => _MobiPayState();
+}
+
+class _MobiPayState extends State<MobiPay> {
+  var username = TextEditingController();
+  var password = TextEditingController();
+
+  @override
+  void dispose() {
+    username.dispose();
+    password.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-    var username = TextEditingController();
-    var password = TextEditingController();
 
     return ToastificationWrapper(
       child: Scaffold(
@@ -139,6 +153,14 @@ class MobiPay extends StatelessWidget {
                                         CloseButtonShowType.none,
                                     dragToClose: true,
                                     showProgressBar: false,
+                                  );
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const ChatMessenger(
+                                          // users: widget.users,
+                                          ),
+                                    ),
                                   );
                                 } else {
                                   toastification.show(
