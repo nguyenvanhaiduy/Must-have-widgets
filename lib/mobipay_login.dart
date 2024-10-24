@@ -22,6 +22,7 @@ class _MobiPayState extends State<MobiPay> {
     super.dispose();
   }
 
+  var show = false;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
@@ -123,7 +124,20 @@ class _MobiPayState extends State<MobiPay> {
                         ),
                       ),
                       SizedBox(height: size.height * 0.005),
-                      widgetTextField(password, hidePass: true),
+                      widgetTextField(password,
+                          hidePass: !show,
+                          iconButton: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                show = !show;
+                              });
+                            },
+                            icon: show
+                                ? const ImageIcon(
+                                    AssetImage('assets/icons/eye.png'))
+                                : const ImageIcon(
+                                    AssetImage('assets/icons/eye-crossed.png')),
+                          )),
                       SizedBox(height: size.height * 0.025),
                       Row(
                         children: [
@@ -154,7 +168,7 @@ class _MobiPayState extends State<MobiPay> {
                                     dragToClose: true,
                                     showProgressBar: false,
                                   );
-                                  Navigator.push(
+                                  Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => const ChatMessenger(
@@ -282,8 +296,11 @@ class RPSCustomPainter extends CustomPainter {
   }
 }
 
-Widget widgetTextField(TextEditingController textEditingController,
-    {bool hidePass = false}) {
+Widget widgetTextField(
+  TextEditingController textEditingController, {
+  bool hidePass = false,
+  IconButton? iconButton,
+}) {
   return Container(
     decoration: BoxDecoration(boxShadow: [
       BoxShadow(
@@ -296,11 +313,11 @@ Widget widgetTextField(TextEditingController textEditingController,
       cursorColor: color,
       obscuringCharacter: '*',
       obscureText: hidePass,
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         fillColor: Colors.white,
         filled: true,
-        contentPadding: EdgeInsets.symmetric(horizontal: 15),
-        focusedBorder: OutlineInputBorder(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 15),
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(20),
           ),
@@ -308,12 +325,13 @@ Widget widgetTextField(TextEditingController textEditingController,
             color: color,
           ),
         ),
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.all(
             Radius.circular(15),
           ),
         ),
+        suffixIcon: iconButton,
       ),
     ),
   );
